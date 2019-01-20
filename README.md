@@ -1,3 +1,6 @@
+<h1>MegaTic-Tac-Toe</h1>
+<hr>
+
 I have made strategic tic-tac-toe or ultimate tic-tac-toe using a library called p5.js or processing .js.
 Rules of the game is as follows:
 Each small 3-by-3 tic-tac-toe board is referred to as a local board, and the larger 3-by-3 board is referred to as the global board.
