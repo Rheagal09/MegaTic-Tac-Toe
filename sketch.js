@@ -157,6 +157,7 @@ function Display(Coors,Count){
   // console.log(Coors)
   if(Count%2==0){
     //Make a Circle
+    fill(51)
     ellipse(pixelX+20,pixelY+20,20,20)
     TotalTrack[index]=1
     // TotalTrack[0][0][0][2]=1
@@ -218,6 +219,7 @@ function checkforwin(arr){
   return 0;
 }
 let AlreadyWon=[]
+let t=0;
 function CrossesWon(){
   t++;
   if(t==1){
@@ -227,22 +229,24 @@ function CrossesWon(){
     stroke(255);
   }
   else {
-    stroke(237,34,93);
+    stroke(182,42,42)
+   
   }
   line(mouseX-50, mouseY+50, mouseX+50, mouseY-50);
   line(mouseX+50, mouseY+50, mouseX-50, mouseY-50);
 }
+
 function CirclesWon(){
   t++
   if(t==1)
     background(51);
-    if (mouseIsPressed){
-      stroke(255);
-    }
-    else {
-      stroke(237,34,93);
-    }
-    ellipse(mouseX,mouseY,50,50)
+	if (mouseIsPressed){
+		stroke(255);
+	}
+	else {
+    stroke(182,42,42)
+	}
+	ellipse(mouseX,mouseY,50,50)
 }
 function someoneWon(Num){
   if(Num==1)
@@ -261,6 +265,8 @@ function draw(){
       return;
     }
     else{
+    	Display(k,Count)
+      Count++
       let currentBox=[]
       for(let i=0;i<3;i++)
         currentBox[i]=new Array(3)
@@ -271,13 +277,12 @@ function draw(){
         }
       }
 
+      
       if(checkforwin(currentBox)!=0 && AlreadyWon[k[0]+k[1]*3]==0){
         BigArray[k[0]][k[1]]=checkforwin(currentBox)
         AlreadyWon[k[0]+k[1]*3]=1;
       }
       console.log(BigArray)
-      Display(k,Count)
-      Count++
       // console.log(Count)
     }
   }
